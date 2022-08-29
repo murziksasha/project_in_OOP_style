@@ -1,9 +1,10 @@
-import MainSlider from "./modules/slider/Slider-main";
-import MiniSlider from "./modules/slider/slider-mini";
-import VideoPlayer from "./modules/PlayVideo";
+import MainSlider from './modules/slider/Slider-main';
+import MiniSlider from './modules/slider/slider-mini';
+import VideoPlayer from './modules/PlayVideo';
+import Difference from './modules/Difference';
 
-window.addEventListener('DOMContentLoaded', ()=> {
-  const slider = new MainSlider({btns: '.next', container: '.page' });
+window.addEventListener('DOMContentLoaded', () => {
+  const slider = new MainSlider({ btns: '.next', container: '.page' });
   slider.render();
 
   const showUpSlider = new MiniSlider({
@@ -11,7 +12,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
     prev: '.showup__prev',
     next: '.showup__next',
     activeClass: 'card-active',
-    animate: true
+    animate: true,
   });
   showUpSlider.init();
 
@@ -21,7 +22,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
     next: '.modules__info-btns .slick-next',
     activeClass: 'card-active',
     animate: true,
-    autoplay: true
+    autoplay: true,
   });
   modulesSlider.init();
 
@@ -29,10 +30,12 @@ window.addEventListener('DOMContentLoaded', ()=> {
     container: '.feed__slider',
     prev: '.feed__slider .slick-prev',
     next: '.feed__slider .slick-next',
-    activeClass: 'feed__item-active'
+    activeClass: 'feed__item-active',
   });
   feedSlider.init();
 
-  const player = new VideoPlayer('.showup .play', '.overlay' );
+  const player = new VideoPlayer('.showup .play', '.overlay');
   player.init();
+
+  new Difference('.officerold','.officernew','.officer__card-item').init();
 });
